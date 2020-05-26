@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeuronNetForm", "WindowsFormsApp1\NeuronNetForm.csproj", "{3697DCF7-758E-425B-84C5-1938C9A61A64}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NeuralNetClrClassLib", "NeuralNetClrClassLib\NeuralNetClrClassLib.vcxproj", "{70BAAE5C-768F-4D0A-89EB-260B69391C8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,16 @@ Global
 		{3697DCF7-758E-425B-84C5-1938C9A61A64}.Release|x64.Build.0 = Release|Any CPU
 		{3697DCF7-758E-425B-84C5-1938C9A61A64}.Release|x86.ActiveCfg = Release|Any CPU
 		{3697DCF7-758E-425B-84C5-1938C9A61A64}.Release|x86.Build.0 = Release|Any CPU
+		{70BAAE5C-768F-4D0A-89EB-260B69391C8A}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{70BAAE5C-768F-4D0A-89EB-260B69391C8A}.Debug|x64.ActiveCfg = Debug|x64
+		{70BAAE5C-768F-4D0A-89EB-260B69391C8A}.Debug|x64.Build.0 = Debug|x64
+		{70BAAE5C-768F-4D0A-89EB-260B69391C8A}.Debug|x86.ActiveCfg = Debug|Win32
+		{70BAAE5C-768F-4D0A-89EB-260B69391C8A}.Debug|x86.Build.0 = Debug|Win32
+		{70BAAE5C-768F-4D0A-89EB-260B69391C8A}.Release|Any CPU.ActiveCfg = Release|Win32
+		{70BAAE5C-768F-4D0A-89EB-260B69391C8A}.Release|x64.ActiveCfg = Release|x64
+		{70BAAE5C-768F-4D0A-89EB-260B69391C8A}.Release|x64.Build.0 = Release|x64
+		{70BAAE5C-768F-4D0A-89EB-260B69391C8A}.Release|x86.ActiveCfg = Release|Win32
+		{70BAAE5C-768F-4D0A-89EB-260B69391C8A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
