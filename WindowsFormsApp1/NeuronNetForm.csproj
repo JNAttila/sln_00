@@ -107,5 +107,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NeuralNetClrClassLib\NeuralNetClrClassLib.vcxproj">
+      <Project>{70baae5c-768f-4d0a-89eb-260b69391c8a}</Project>
+      <Name>NeuralNetClrClassLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

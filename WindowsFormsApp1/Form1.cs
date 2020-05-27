@@ -19,9 +19,11 @@ namespace NeuronNet
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonAdd_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello World!");
+            int a = 42;
+            int b = 17;
+            MessageBox.Show(String.Format("{0} + {1} = {2}", a, b, NeuralNetClrClassLib.NeuralClassLib.Add(a, b)));
         }
     }
 }

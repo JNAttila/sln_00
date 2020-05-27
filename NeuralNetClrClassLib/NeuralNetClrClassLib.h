@@ -3,8 +3,11 @@
 using namespace System;
 
 namespace NeuralNetClrClassLib {
-	public ref class Class1
+
+	public ref class NeuralClassLib
 	{
-		// TODO: Add your methods for this class here.
+	public:
+		static int Add(int a, int b);
 	};
+
 }
