@@ -11,6 +11,11 @@ public:
 	NeuralNetTester();
 	~NeuralNetTester();
 
+	int DoTestingProcess(int testingSampleNumber);
+
+	double GetTestingPercentage() { return testingPercentage; }
+
+private:
 	// From layer_1 to layer_2.
 	double* weight1[neurLayer_1], * out1;
 	// From layer_2 to layer_3.
@@ -19,20 +24,20 @@ public:
 	double* in3, * out3;
 	double expected[neurLayer_3];
 
+	double testingPercentage;
+
 	// The current MNIST image: 28x28 gray scale image
 	int currImg[imageWidth][imageHeight];
 
 	ifstream image;
 	ifstream label;
 	ofstream report;
-
-	void LoadModel(string fileName);
-	void Perceptron();
-
-	int ReadInput();
-	int DoTestingProcess();
-
 	double Sigmoid(double x);
 	double SquareError();
+
+	void Perceptron();
+	void LoadModel(string fileName);
+
+	int ReadInput();
 };
 

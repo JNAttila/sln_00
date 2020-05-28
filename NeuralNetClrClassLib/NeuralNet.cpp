@@ -72,9 +72,8 @@ void NeuralNet::InitLearnArray()
     }
 }
 
-double NeuralNet::GetArray()
+double NeuralNet::GetRandomValue()
 {
-    cout << ((rand() % 2 == 0) ? (1) : (-1)) * (double)(rand() % 6) / 10.0;
     return ((rand() % 2 == 0) ? (1) : (-1)) * (double)(rand() % 6) / 10.0;
 }
 
@@ -246,9 +245,8 @@ void NeuralNet::WriteMatrix(string fileName) {
     file.close();
 }
 
-
-int NeuralNet::DoTrainingProcess() {
-    report.open(reportFileName.c_str(), ios::out);
+int NeuralNet::DoTrainingProcess(int trainingSampleNumber) {
+    report.open(trainingReportFileName.c_str(), ios::out);
     image.open(trainingImageFileName.c_str(), ios::in | ios::binary); // Binary image file
     label.open(trainingLabelFileName.c_str(), ios::in | ios::binary); // Binary label file
 
@@ -264,6 +262,7 @@ int NeuralNet::DoTrainingProcess() {
     // Neural Network Initialization
     InitLearnArray();
 
+    trainingPercentage = 0.0;
     for (int sample = 0; sample < trainingSampleNumber; ++sample) {
         //cout << "Sample " << sample << endl;
 
@@ -282,6 +281,10 @@ int NeuralNet::DoTrainingProcess() {
         if (sample % 100 == 0) {
             //cout << "Saving the network to " << modelFileName << " file." << endl;
             WriteMatrix(modelFileName);
+        }
+
+        if (sample % 20 == 0) {
+            trainingPercentage = sample / trainingSampleNumber;
         }
     }
 

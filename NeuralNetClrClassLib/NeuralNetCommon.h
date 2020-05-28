@@ -15,8 +15,10 @@ static const int neurLayer_3 = 10;
 
 // Weights file name
 const string modelFileName = "model-neural-network.dat";
-// Report file name
-const string reportFileName = "training-report.dat";
+
+const string trainingReportFileName = "training-report.dat";
+
+const string testingReportFileName = "testing-report.dat";
 
 
 /***************
@@ -26,9 +28,6 @@ const string reportFileName = "training-report.dat";
 const string trainingImageFileName = "mnist/train-images.idx3-ubyte";
 // Training label file name
 const string trainingLabelFileName = "mnist/train-labels.idx1-ubyte";
-
-// Number of training samples
-const int trainingSampleNumber = 10;
 
 const int epochs = 512;
 const double learning_rate = 1e-3;
@@ -43,6 +42,3 @@ const double epsilon = 1e-3;
 const string testingImageFileName = "mnist/t10k-images.idx3-ubyte";
 // Testing label file name
 const string testingLabelFileName = "mnist/t10k-labels.idx1-ubyte";
-
-// Number of testing samples
-const int nTesting = 10;

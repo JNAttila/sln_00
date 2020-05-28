@@ -142,10 +142,9 @@ int NeuralNetTester::ReadInput()
     return (int)(number);
 }
 
-
-int NeuralNetTester::DoTestingProcess()
+int NeuralNetTester::DoTestingProcess(int testingSampleNumber)
 {
-    report.open(reportFileName.c_str(), ios::out);
+    report.open(testingReportFileName.c_str(), ios::out);
     image.open(testingImageFileName.c_str(), ios::in | ios::binary);
     label.open(testingLabelFileName.c_str(), ios::in | ios::binary);
 
@@ -162,7 +161,8 @@ int NeuralNetTester::DoTestingProcess()
     LoadModel(modelFileName);
 
     int nCorrect = 0;
-    for (int sample = 0; sample < nTesting; ++sample) {
+    testingPercentage = 0.0;
+    for (int sample = 0; sample < testingSampleNumber; ++sample) {
         //cout << "Sample " << sample << endl;
 
         // Getting (image, label)
@@ -200,14 +200,16 @@ int NeuralNetTester::DoTestingProcess()
             cout << endl;*/
             //report << "Sample " << sample << ": NO.  Label = " << label << ". Predict = " << predict << ". Error = " << error << endl;
         }
+
+        if (sample % 20 == 0) {
+            testingPercentage = sample / testingSampleNumber;
+        }
     }
 
     // Summary
-    double accuracy = (double)(nCorrect) / nTesting * 100.0;
-    //cout << "Number of correct samples: " << nCorrect << " / " << nTesting << endl;
-    //printf("Accuracy: %0.2lf\n", accuracy);
+    double accuracy = (double)(nCorrect) / testingSampleNumber * 100.0;
 
-    report << "Number of correct samples: " << nCorrect << " / " << nTesting << endl;
+    report << "Number of correct samples: " << nCorrect << " / " << testingSampleNumber << endl;
     report << "Accuracy: " << accuracy << endl;
 
     report.close();

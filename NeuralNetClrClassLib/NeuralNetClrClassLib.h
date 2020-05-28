@@ -12,11 +12,13 @@ namespace NeuralNetClrClassLib {
 		NeuralClassLib();
 		~NeuralClassLib();
 
-		void Init();
+		int DoTrainingProcess(int limit);
+		int DoTestingProcess(int limit);
 
-		int DoProcess();
+		double GetTrainingPercent();
+		double GetTestingPercent();
 		
-		double GetArray();
+		double GetRandomValue();
 	};
 
 }

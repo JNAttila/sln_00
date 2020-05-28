@@ -21,6 +21,15 @@ public:
 	NeuralNet();
 	~NeuralNet();
 
+	int DoTrainingProcess(int limit);
+
+	double GetTrainingPercentage() { return trainingPercentage; }
+
+	double GetRandomValue();
+
+	static int Add(int a, int b);
+
+private:
 	// From layer_1 to layer_2.
 	double* weight1[neurLayer_1], * delta1[neurLayer_1], * out1;
 	// From layer_2 to layer_3.
@@ -28,6 +37,8 @@ public:
 	// Layer 3
 	double* in3, * out3, * theta3;
 	double expected[neurLayer_3];
+
+	double trainingPercentage;
 
 	// The current MNIST image: 28x28 gray scale image
 	int currImg[imageWidth][imageHeight];
@@ -41,14 +52,9 @@ public:
 	void BackPropagation();
 	void ReadInput();
 	void WriteMatrix(string fileName);
-
-	int DoTrainingProcess();
 	int LearningProcess();
 
-	double GetArray();
 	double Sigmoid(double x);
 	double SquareError();
-
-	static int Add(int a, int b);
 };
 

@@ -1,10 +1,12 @@
 #include "pch.h"
 #include "NeuralNet.h"
+#include "NeuralNetTester.h"
 #include "NeuralNetClrClassLib.h"
 
 namespace NeuralNetClrClassLib {
 
 	NeuralNet neuralNetwork;
+	NeuralNetTester neuralNetworkTester;
 
 	int NeuralClassLib::Add(int a, int b)
 	{
@@ -19,18 +21,29 @@ namespace NeuralNetClrClassLib {
 	{
 	}
 
-	void NeuralClassLib::Init()
+	int NeuralClassLib::DoTrainingProcess(int limit)
 	{
-		neuralNetwork.InitLearnArray();
+		return neuralNetwork.DoTrainingProcess(limit);
 	}
 
-	int NeuralClassLib::DoProcess()
+	int NeuralClassLib::DoTestingProcess(int limit)
 	{
-		return neuralNetwork.DoTrainingProcess();
+		return neuralNetworkTester.DoTestingProcess(limit);
 	}
 
-	double NeuralClassLib::GetArray()
+	double NeuralClassLib::GetTrainingPercent()
 	{
-		return neuralNetwork.GetArray();
+		return neuralNetwork.GetTrainingPercentage();
 	}
+
+	double NeuralClassLib::GetTestingPercent()
+	{
+		return neuralNetworkTester.GetTestingPercentage();
+	}
+
+	double NeuralClassLib::GetRandomValue()
+	{
+		return neuralNetwork.GetRandomValue();
+	}
+
 }

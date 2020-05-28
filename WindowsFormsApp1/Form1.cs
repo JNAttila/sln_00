@@ -1,46 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.IO;
 
-using NeuralNetClrClassLib;
 
 namespace NeuronNet
 {
     public partial class MainForm : Form
     {
-        NeuralNetClrClassLib.NeuralClassLib ncl;
+        readonly NeuronManager manager;
 
         public MainForm()
         {
+            manager = new NeuronManager();
             InitializeComponent();
-            ncl = new NeuralClassLib();
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void buttonTrainProcess_Click(object sender, EventArgs e)
         {
-            int a = 42;
-            int b = 17;
-            MessageBox.Show(String.Format("{0} + {1} = {2}", a, b, NeuralClassLib.Add(a, b)));
+            /*if (this.InvokeRequired)
+            {
+                this.Invoke(buttonTrainProcess_Click(sender, e));
+                return;
+            }*/
+
+            timer1.Start();
+            manager.DoTrainingProcess((Button)sender, cbTrainingSampleSize);
         }
 
-        private void buttonNetInit_Click(object sender, EventArgs e)
+        private void btnPauseTraining_Click(object sender, EventArgs e)
         {
-            ncl.Init();
-            buttonNetInit.Text = "OK " + ncl.GetArray();
+
         }
 
-        private void buttonProcess_Click(object sender, EventArgs e)
+        private void btnDoTesting_Click(object sender, EventArgs e)
         {
-            buttonProcess.Text = "OK " + ncl.DoProcess();
+            manager.DoTestingProcess((Button)sender, cbTestingSampleSize);
         }
 
+        private void btnPauseTesting_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            manager.GetTrainingPercentage(lblTrainingPercValue);
+        }
     }
 }
