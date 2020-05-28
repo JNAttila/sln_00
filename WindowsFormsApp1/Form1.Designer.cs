@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonNetInit = new System.Windows.Forms.Button();
+            this.buttonProcess = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonAdd
@@ -41,22 +43,45 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
+            // buttonNetInit
+            // 
+            this.buttonNetInit.Location = new System.Drawing.Point(12, 65);
+            this.buttonNetInit.Name = "buttonNetInit";
+            this.buttonNetInit.Size = new System.Drawing.Size(75, 23);
+            this.buttonNetInit.TabIndex = 2;
+            this.buttonNetInit.Text = "NetInit";
+            this.buttonNetInit.UseVisualStyleBackColor = true;
+            this.buttonNetInit.Click += new System.EventHandler(this.buttonNetInit_Click);
+            // 
+            // buttonProcess
+            // 
+            this.buttonProcess.Location = new System.Drawing.Point(12, 114);
+            this.buttonProcess.Name = "buttonProcess";
+            this.buttonProcess.Size = new System.Drawing.Size(75, 23);
+            this.buttonProcess.TabIndex = 3;
+            this.buttonProcess.Text = "DoProcess";
+            this.buttonProcess.UseVisualStyleBackColor = true;
+            this.buttonProcess.Click += new System.EventHandler(this.buttonProcess_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 421);
+            this.Controls.Add(this.buttonProcess);
+            this.Controls.Add(this.buttonNetInit);
             this.Controls.Add(this.buttonAdd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NeuralNet for GE HC";
             this.ResumeLayout(false);
-
         }
 
         #endregion
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonNetInit;
+        private System.Windows.Forms.Button buttonProcess;
     }
 }
 
