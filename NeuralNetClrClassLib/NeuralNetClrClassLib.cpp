@@ -26,7 +26,7 @@ namespace NeuralNetClrClassLib {
 		return neuralNetwork.DoTrainingProcess(limit);
 	}
 
-	int NeuralClassLib::DoTestingProcess()
+	double NeuralClassLib::DoTestingProcess()
 	{
 		return neuralNetworkTester.DoTestingProcess();
 	}

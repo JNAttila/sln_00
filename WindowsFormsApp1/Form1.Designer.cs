@@ -40,6 +40,9 @@
             this.lblTestingSampleSize = new System.Windows.Forms.Label();
             this.btnDoTesting = new System.Windows.Forms.Button();
             this.generalTimer = new System.Windows.Forms.Timer(this.components);
+            this.lblTestingPercValue = new System.Windows.Forms.Label();
+            this.lblTestingPerc = new System.Windows.Forms.Label();
+            this.timerTesting = new System.Windows.Forms.Timer(this.components);
             this.gbTraining.SuspendLayout();
             this.bgTesting.SuspendLayout();
             this.SuspendLayout();
@@ -127,6 +130,8 @@
             // 
             // bgTesting
             // 
+            this.bgTesting.Controls.Add(this.lblTestingPercValue);
+            this.bgTesting.Controls.Add(this.lblTestingPerc);
             this.bgTesting.Controls.Add(this.lblTestingSampleSize);
             this.bgTesting.Controls.Add(this.btnDoTesting);
             this.bgTesting.Location = new System.Drawing.Point(319, 12);
@@ -160,6 +165,28 @@
             this.generalTimer.Interval = 1000;
             this.generalTimer.Tick += new System.EventHandler(this.generalTimer_Tick);
             // 
+            // lblTestingPercValue
+            // 
+            this.lblTestingPercValue.BackColor = System.Drawing.Color.LightYellow;
+            this.lblTestingPercValue.Location = new System.Drawing.Point(114, 87);
+            this.lblTestingPercValue.Name = "lblTestingPercValue";
+            this.lblTestingPercValue.Size = new System.Drawing.Size(35, 13);
+            this.lblTestingPercValue.TabIndex = 11;
+            // 
+            // lblTestingPerc
+            // 
+            this.lblTestingPerc.AutoSize = true;
+            this.lblTestingPerc.Location = new System.Drawing.Point(6, 87);
+            this.lblTestingPerc.Name = "lblTestingPerc";
+            this.lblTestingPerc.Size = new System.Drawing.Size(102, 13);
+            this.lblTestingPerc.TabIndex = 10;
+            this.lblTestingPerc.Text = "Testing process (%):";
+            // 
+            // timerTesting
+            // 
+            this.timerTesting.Interval = 300;
+            this.timerTesting.Tick += new System.EventHandler(this.timerTesting_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +218,9 @@
         private System.Windows.Forms.Label lblTrainingPercValue;
         private System.Windows.Forms.Label lblTrainingPerc;
         private System.Windows.Forms.Timer generalTimer;
+        private System.Windows.Forms.Label lblTestingPercValue;
+        private System.Windows.Forms.Label lblTestingPerc;
+        private System.Windows.Forms.Timer timerTesting;
     }
 }
 

@@ -24,8 +24,10 @@ namespace NeuronNet
             String selectedItem = (cbTrainingSampleSize.SelectedItem != null) ? (cbTrainingSampleSize.SelectedItem.ToString()) : ("");
             Int32.TryParse(selectedItem, out int limit);
 
-            await Task.Run(() => manager.DoTrainingProcess((limit > 0) ? (limit) : (NeuronManager.defaultLimit)));
+            //Task.
 
+            await Task.Run(() => manager.DoTrainingProcess((limit > 0) ? (limit) : (NeuronManager.defaultLimit)));
+            
             changeState();
             generalTimer.Stop();
             Application.DoEvents();
@@ -36,9 +38,17 @@ namespace NeuronNet
             // TODO: implement
         }
 
-        private void btnDoTesting_Click(object sender, EventArgs e)
+        private async void btnDoTesting_Click(object sender, EventArgs e)
         {
-            manager.DoTestingProcess((Button)sender);
+            changeState();
+            timerTesting.Start();
+            Application.DoEvents();
+
+            await Task.Run(() => manager.DoTestingProcess());
+
+            changeState();
+            timerTesting.Stop();
+            Application.DoEvents();
         }
 
         private void generalTimer_Tick(object sender, EventArgs e)
@@ -49,10 +59,16 @@ namespace NeuronNet
         private void changeState()
         {
             lblTrainingPercValue.Text = "";
+            lblTestingPercValue.Text = "";
             btnDoTesting.Enabled = !btnDoTesting.Enabled;
             btnDoTraining.Enabled = !btnDoTraining.Enabled;
             btnPauseTraining.Enabled = !btnPauseTraining.Enabled;
             cbTrainingSampleSize.Enabled = !cbTrainingSampleSize.Enabled;
+        }
+
+        private void timerTesting_Tick(object sender, EventArgs e)
+        {
+            manager.GetTestingPercentage(lblTestingPercValue);
         }
     }
 }

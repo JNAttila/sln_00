@@ -13,7 +13,7 @@ namespace NeuralNetClrClassLib {
 		~NeuralClassLib();
 
 		double DoTrainingProcess(int limit);
-		int DoTestingProcess();
+		double DoTestingProcess();
 
 		double GetTrainingPercent();
 		double GetTestingPercent();

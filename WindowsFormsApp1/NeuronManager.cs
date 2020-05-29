@@ -16,9 +16,9 @@ namespace NeuronNet
             ncl = new NeuralClassLib();
         }
 
-        public double GetRandomValue()
+        public void GetTestingPercentage(Label lbl)
         {
-            return ncl.GetRandomValue();
+            lbl.Text = (ncl.GetTestingPercent() * 100).ToString();
         }
 
         public double DoTrainingProcess(int limit)
@@ -31,15 +31,9 @@ namespace NeuronNet
             lbl.Text = (ncl.GetTrainingPercent() * 100).ToString();
         }
 
-        public void DoTestingProcess(Button btn)
+        public void DoTestingProcess()
         {
-            btn.Enabled = false;
-            Application.DoEvents();
-
             ncl.DoTestingProcess();
-
-            btn.Enabled = true;
-            Application.DoEvents();
         }
     }
 }

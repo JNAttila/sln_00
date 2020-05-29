@@ -142,7 +142,7 @@ int NeuralNetTester::ReadInput()
     return (int)(number);
 }
 
-int NeuralNetTester::DoTestingProcess()
+double NeuralNetTester::DoTestingProcess()
 {
     report.open(testingReportFileName.c_str(), ios::out);
     image.open(testingImageFileName.c_str(), ios::in | ios::binary);
@@ -163,7 +163,6 @@ int NeuralNetTester::DoTestingProcess()
     int nCorrect = 0;
     testingPercentage = 0.0;
     for (int sample = 0; sample < testingSampleSize; ++sample) {
-        //cout << "Sample " << sample << endl;
 
         // Getting (image, label)
         int label = ReadInput();
@@ -181,29 +180,10 @@ int NeuralNetTester::DoTestingProcess()
 
         // Write down the classification result and the squared error
         double error = SquareError();
-        //printf("Error: %0.6lf\n", error);
 
-        if (label == predict) {
-            ++nCorrect;
-            //cout << "Classification: YES. Label = " << label << ". Predict = " << predict << endl << endl;
-            //report << "Sample " << sample << ": YES. Label = " << label << ". Predict = " << predict << ". Error = " << error << endl;
-        }
-        else {
-            //cout << "Classification: NO.  Label = " << label << ". Predict = " << predict << endl;
-            //cout << "Image:" << endl;
-            /*for (int j = 0; j < imageHeight; ++j) {
-                for (int i = 0; i < imageWidth; ++i) {
-                    cout << currImg[i][j];
-                }
-                cout << endl;
-            }
-            cout << endl;*/
-            //report << "Sample " << sample << ": NO.  Label = " << label << ". Predict = " << predict << ". Error = " << error << endl;
-        }
+        nCorrect += ((label == predict) ? (1) : (0));
 
-        if (sample % 20 == 0) {
-            testingPercentage = sample / testingSampleSize;
-        }
+        testingPercentage = 1.0 * sample / testingSampleSize;
     }
 
     // Summary
@@ -216,5 +196,5 @@ int NeuralNetTester::DoTestingProcess()
     image.close();
     label.close();
 
-    return 37;
+    return accuracy;
 }
