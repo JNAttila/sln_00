@@ -21,8 +21,7 @@ public:
 	NeuralNet();
 	~NeuralNet();
 
-	int DoTrainingProcess(int limit);
-
+	double DoTrainingProcess(int limit);
 	double GetTrainingPercentage() { return trainingPercentage; }
 
 	double GetRandomValue();

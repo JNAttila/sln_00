@@ -1,6 +1,7 @@
 ﻿
 using NeuralNetClrClassLib;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace NeuronNet
@@ -8,7 +9,7 @@ namespace NeuronNet
     class NeuronManager
     {
         readonly NeuralNetClrClassLib.NeuralClassLib ncl;
-        const int defaultLimit = 100;
+        public const int defaultLimit = 50;
 
         public NeuronManager()
         {
@@ -20,22 +21,14 @@ namespace NeuronNet
             return ncl.GetRandomValue();
         }
 
-        public void DoTrainingProcess(Button btn, ComboBox cb)
+        public double DoTrainingProcess(int limit)
         {
-            btn.Enabled = false;
-            String selectedItem = (cb.SelectedItem != null) ? (cb.SelectedItem.ToString()) : ("");
-            Int32.TryParse(selectedItem, out int limit);
-            Application.DoEvents();
-
-            ncl.DoTrainingProcess((limit > 0) ? (limit) : (defaultLimit));
-
-            btn.Enabled = true;
-            Application.DoEvents();
+            return ncl.DoTrainingProcess(limit);
         }
 
-        public void GetTrainingPercentage(Label label)
+        public void GetTrainingPercentage(Label lbl)
         {
-            label.Text = ncl.GetTrainingPercent().ToString();
+            lbl.Text = (ncl.GetTrainingPercent() * 100).ToString();
         }
 
         public void DoTestingProcess(Button btn)

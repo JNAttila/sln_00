@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.buttonProcess = new System.Windows.Forms.Button();
+            this.btnDoTraining = new System.Windows.Forms.Button();
             this.gbTraining = new System.Windows.Forms.GroupBox();
             this.lblTrainingPercValue = new System.Windows.Forms.Label();
             this.lblTrainingPerc = new System.Windows.Forms.Label();
@@ -37,25 +37,22 @@
             this.cbTrainingSampleSize = new System.Windows.Forms.ComboBox();
             this.btnPauseTraining = new System.Windows.Forms.Button();
             this.bgTesting = new System.Windows.Forms.GroupBox();
-            this.lblTestingPercValue = new System.Windows.Forms.Label();
-            this.lblTestingPerc = new System.Windows.Forms.Label();
             this.lblTestingSampleSize = new System.Windows.Forms.Label();
-            this.btnPauseTesting = new System.Windows.Forms.Button();
             this.btnDoTesting = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.generalTimer = new System.Windows.Forms.Timer(this.components);
             this.gbTraining.SuspendLayout();
             this.bgTesting.SuspendLayout();
             this.SuspendLayout();
             // 
-            // buttonProcess
+            // btnDoTraining
             // 
-            this.buttonProcess.Location = new System.Drawing.Point(6, 19);
-            this.buttonProcess.Name = "buttonProcess";
-            this.buttonProcess.Size = new System.Drawing.Size(75, 23);
-            this.buttonProcess.TabIndex = 3;
-            this.buttonProcess.Text = "DoProcess";
-            this.buttonProcess.UseVisualStyleBackColor = true;
-            this.buttonProcess.Click += new System.EventHandler(this.buttonTrainProcess_Click);
+            this.btnDoTraining.Location = new System.Drawing.Point(6, 19);
+            this.btnDoTraining.Name = "btnDoTraining";
+            this.btnDoTraining.Size = new System.Drawing.Size(75, 23);
+            this.btnDoTraining.TabIndex = 3;
+            this.btnDoTraining.Text = "DoProcess";
+            this.btnDoTraining.UseVisualStyleBackColor = true;
+            this.btnDoTraining.Click += new System.EventHandler(this.btnDoTraining_Click);
             // 
             // gbTraining
             // 
@@ -64,7 +61,7 @@
             this.gbTraining.Controls.Add(this.lblTrainingSampleSize);
             this.gbTraining.Controls.Add(this.cbTrainingSampleSize);
             this.gbTraining.Controls.Add(this.btnPauseTraining);
-            this.gbTraining.Controls.Add(this.buttonProcess);
+            this.gbTraining.Controls.Add(this.btnDoTraining);
             this.gbTraining.Location = new System.Drawing.Point(12, 12);
             this.gbTraining.Name = "gbTraining";
             this.gbTraining.Size = new System.Drawing.Size(301, 158);
@@ -79,7 +76,6 @@
             this.lblTrainingPercValue.Name = "lblTrainingPercValue";
             this.lblTrainingPercValue.Size = new System.Drawing.Size(35, 13);
             this.lblTrainingPercValue.TabIndex = 9;
-            this.lblTrainingPercValue.Text = "0";
             // 
             // lblTrainingPerc
             // 
@@ -120,20 +116,18 @@
             // 
             // btnPauseTraining
             // 
+            this.btnPauseTraining.Enabled = false;
             this.btnPauseTraining.Location = new System.Drawing.Point(6, 48);
             this.btnPauseTraining.Name = "btnPauseTraining";
             this.btnPauseTraining.Size = new System.Drawing.Size(75, 23);
             this.btnPauseTraining.TabIndex = 4;
             this.btnPauseTraining.Text = "Pause";
             this.btnPauseTraining.UseVisualStyleBackColor = true;
-            this.btnPauseTraining.Click += new System.EventHandler(this.btnPauseTraining_Click);
+            this.btnPauseTraining.Click += new System.EventHandler(this.btnPauseTraining_ClickAsync);
             // 
             // bgTesting
             // 
-            this.bgTesting.Controls.Add(this.lblTestingPercValue);
-            this.bgTesting.Controls.Add(this.lblTestingPerc);
             this.bgTesting.Controls.Add(this.lblTestingSampleSize);
-            this.bgTesting.Controls.Add(this.btnPauseTesting);
             this.bgTesting.Controls.Add(this.btnDoTesting);
             this.bgTesting.Location = new System.Drawing.Point(319, 12);
             this.bgTesting.Name = "bgTesting";
@@ -142,42 +136,14 @@
             this.bgTesting.TabStop = false;
             this.bgTesting.Text = "Testing the Network";
             // 
-            // lblTestingPercValue
-            // 
-            this.lblTestingPercValue.BackColor = System.Drawing.Color.LightYellow;
-            this.lblTestingPercValue.Location = new System.Drawing.Point(114, 87);
-            this.lblTestingPercValue.Name = "lblTestingPercValue";
-            this.lblTestingPercValue.Size = new System.Drawing.Size(35, 13);
-            this.lblTestingPercValue.TabIndex = 10;
-            this.lblTestingPercValue.Text = "0";
-            // 
-            // lblTestingPerc
-            // 
-            this.lblTestingPerc.AutoSize = true;
-            this.lblTestingPerc.Location = new System.Drawing.Point(6, 87);
-            this.lblTestingPerc.Name = "lblTestingPerc";
-            this.lblTestingPerc.Size = new System.Drawing.Size(102, 13);
-            this.lblTestingPerc.TabIndex = 10;
-            this.lblTestingPerc.Text = "Testing process (%):";
-            // 
             // lblTestingSampleSize
             // 
             this.lblTestingSampleSize.AutoSize = true;
-            this.lblTestingSampleSize.Location = new System.Drawing.Point(110, 24);
+            this.lblTestingSampleSize.Location = new System.Drawing.Point(104, 24);
             this.lblTestingSampleSize.Name = "lblTestingSampleSize";
             this.lblTestingSampleSize.Size = new System.Drawing.Size(135, 13);
             this.lblTestingSampleSize.TabIndex = 8;
             this.lblTestingSampleSize.Text = "Testing sample size: 10000";
-            // 
-            // btnPauseTesting
-            // 
-            this.btnPauseTesting.Location = new System.Drawing.Point(6, 48);
-            this.btnPauseTesting.Name = "btnPauseTesting";
-            this.btnPauseTesting.Size = new System.Drawing.Size(75, 23);
-            this.btnPauseTesting.TabIndex = 5;
-            this.btnPauseTesting.Text = "Pause";
-            this.btnPauseTesting.UseVisualStyleBackColor = true;
-            this.btnPauseTesting.Click += new System.EventHandler(this.btnPauseTesting_Click);
             // 
             // btnDoTesting
             // 
@@ -189,9 +155,10 @@
             this.btnDoTesting.UseVisualStyleBackColor = true;
             this.btnDoTesting.Click += new System.EventHandler(this.btnDoTesting_Click);
             // 
-            // timer1
+            // generalTimer
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.generalTimer.Interval = 1000;
+            this.generalTimer.Tick += new System.EventHandler(this.generalTimer_Tick);
             // 
             // MainForm
             // 
@@ -213,20 +180,17 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonProcess;
+        private System.Windows.Forms.Button btnDoTraining;
         private System.Windows.Forms.GroupBox gbTraining;
         private System.Windows.Forms.GroupBox bgTesting;
         private System.Windows.Forms.Button btnDoTesting;
         private System.Windows.Forms.Button btnPauseTraining;
-        private System.Windows.Forms.Button btnPauseTesting;
         private System.Windows.Forms.Label lblTrainingSampleSize;
         private System.Windows.Forms.ComboBox cbTrainingSampleSize;
         private System.Windows.Forms.Label lblTestingSampleSize;
         private System.Windows.Forms.Label lblTrainingPercValue;
         private System.Windows.Forms.Label lblTrainingPerc;
-        private System.Windows.Forms.Label lblTestingPercValue;
-        private System.Windows.Forms.Label lblTestingPerc;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer generalTimer;
     }
 }
 

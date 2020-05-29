@@ -245,10 +245,10 @@ void NeuralNet::WriteMatrix(string fileName) {
     file.close();
 }
 
-int NeuralNet::DoTrainingProcess(int trainingSampleNumber) {
+double NeuralNet::DoTrainingProcess(int trainingSampleNumber) {
     report.open(trainingReportFileName.c_str(), ios::out);
-    image.open(trainingImageFileName.c_str(), ios::in | ios::binary); // Binary image file
-    label.open(trainingLabelFileName.c_str(), ios::in | ios::binary); // Binary label file
+    image.open(trainingImageFileName.c_str(), ios::in | ios::binary);
+    label.open(trainingLabelFileName.c_str(), ios::in | ios::binary);
 
     // Reading file headers
     char number;
@@ -264,7 +264,6 @@ int NeuralNet::DoTrainingProcess(int trainingSampleNumber) {
 
     trainingPercentage = 0.0;
     for (int sample = 0; sample < trainingSampleNumber; ++sample) {
-        //cout << "Sample " << sample << endl;
 
         // Getting (image, label)
         ReadInput();
@@ -273,19 +272,14 @@ int NeuralNet::DoTrainingProcess(int trainingSampleNumber) {
         int nIterations = LearningProcess();
 
         // Write down the squared error
-        //cout << "No. iterations: " << nIterations << endl;
-        //printf("Error: %0.6lf\n\n", SquareError());
         report << "Sample " << sample << ": No. iterations = " << nIterations << ", Error = " << SquareError() << endl;
 
         // Save the current network (weights)
-        if (sample % 100 == 0) {
-            //cout << "Saving the network to " << modelFileName << " file." << endl;
+        if (sample % 20 == 0) {
             WriteMatrix(modelFileName);
         }
 
-        if (sample % 20 == 0) {
-            trainingPercentage = sample / trainingSampleNumber;
-        }
+        trainingPercentage = 1.0 * sample / trainingSampleNumber;
     }
 
     // Save the final network
@@ -295,5 +289,5 @@ int NeuralNet::DoTrainingProcess(int trainingSampleNumber) {
     image.close();
     label.close();
 
-    return 41;
+    return trainingPercentage;
 }
