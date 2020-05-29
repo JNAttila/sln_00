@@ -33,7 +33,7 @@ The application is almost ready, naturally. BUT, it is possible:
 1. Train the netrok:
    1. Select the training sample size with the comboBox (default: 50)
    1. Press the `Do Training` button
-   1. Please wait, until the process is finished (50 images ~25sec (17,39%), 100 images ~60sec (46.83%), 200 images ~100sec (49.58%))
+   1. Please wait, until the process is finished (50 images ~25sec (17,39%), 100 images ~60sec (46.83%), 200 images ~100sec (49.58%), 5000 images ~7min (80.08%))
    1. On the Yellow label You can see the percentage of the process
 1. You can check the result files:
    1. `model-neural-network.dat`: calculated values at the neural network
