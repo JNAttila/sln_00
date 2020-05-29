@@ -24,8 +24,6 @@ namespace NeuronNet
             String selectedItem = (cbTrainingSampleSize.SelectedItem != null) ? (cbTrainingSampleSize.SelectedItem.ToString()) : ("");
             Int32.TryParse(selectedItem, out int limit);
 
-            //Task.
-
             await Task.Run(() => manager.DoTrainingProcess((limit > 0) ? (limit) : (NeuronManager.defaultLimit)));
             
             changeState();
@@ -42,9 +40,10 @@ namespace NeuronNet
         {
             changeState();
             timerTesting.Start();
+            lblAccuracyValue.Text = "";
             Application.DoEvents();
 
-            await Task.Run(() => manager.DoTestingProcess());
+            lblAccuracyValue.Text = await Task.Run(() => manager.DoTestingProcess().ToString());
 
             changeState();
             timerTesting.Stop();

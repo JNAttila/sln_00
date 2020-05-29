@@ -31,9 +31,9 @@ namespace NeuronNet
             lbl.Text = (ncl.GetTrainingPercent() * 100).ToString();
         }
 
-        public void DoTestingProcess()
+        public double DoTestingProcess()
         {
-            ncl.DoTestingProcess();
+            return ncl.DoTestingProcess();
         }
     }
 }

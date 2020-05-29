@@ -43,6 +43,8 @@
             this.lblTestingPercValue = new System.Windows.Forms.Label();
             this.lblTestingPerc = new System.Windows.Forms.Label();
             this.timerTesting = new System.Windows.Forms.Timer(this.components);
+            this.lblAccuracy = new System.Windows.Forms.Label();
+            this.lblAccuracyValue = new System.Windows.Forms.Label();
             this.gbTraining.SuspendLayout();
             this.bgTesting.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +79,7 @@
             this.lblTrainingPercValue.BackColor = System.Drawing.Color.LightYellow;
             this.lblTrainingPercValue.Location = new System.Drawing.Point(117, 87);
             this.lblTrainingPercValue.Name = "lblTrainingPercValue";
-            this.lblTrainingPercValue.Size = new System.Drawing.Size(35, 13);
+            this.lblTrainingPercValue.Size = new System.Drawing.Size(47, 13);
             this.lblTrainingPercValue.TabIndex = 9;
             // 
             // lblTrainingPerc
@@ -112,7 +114,7 @@
             "10000",
             "20000",
             "60000"});
-            this.cbTrainingSampleSize.Location = new System.Drawing.Point(124, 48);
+            this.cbTrainingSampleSize.Location = new System.Drawing.Point(120, 48);
             this.cbTrainingSampleSize.Name = "cbTrainingSampleSize";
             this.cbTrainingSampleSize.Size = new System.Drawing.Size(121, 21);
             this.cbTrainingSampleSize.TabIndex = 7;
@@ -130,6 +132,8 @@
             // 
             // bgTesting
             // 
+            this.bgTesting.Controls.Add(this.lblAccuracyValue);
+            this.bgTesting.Controls.Add(this.lblAccuracy);
             this.bgTesting.Controls.Add(this.lblTestingPercValue);
             this.bgTesting.Controls.Add(this.lblTestingPerc);
             this.bgTesting.Controls.Add(this.lblTestingSampleSize);
@@ -170,7 +174,7 @@
             this.lblTestingPercValue.BackColor = System.Drawing.Color.LightYellow;
             this.lblTestingPercValue.Location = new System.Drawing.Point(114, 87);
             this.lblTestingPercValue.Name = "lblTestingPercValue";
-            this.lblTestingPercValue.Size = new System.Drawing.Size(35, 13);
+            this.lblTestingPercValue.Size = new System.Drawing.Size(47, 13);
             this.lblTestingPercValue.TabIndex = 11;
             // 
             // lblTestingPerc
@@ -186,6 +190,23 @@
             // 
             this.timerTesting.Interval = 300;
             this.timerTesting.Tick += new System.EventHandler(this.timerTesting_Tick);
+            // 
+            // lblAccuracy
+            // 
+            this.lblAccuracy.AutoSize = true;
+            this.lblAccuracy.Location = new System.Drawing.Point(36, 58);
+            this.lblAccuracy.Name = "lblAccuracy";
+            this.lblAccuracy.Size = new System.Drawing.Size(72, 13);
+            this.lblAccuracy.TabIndex = 12;
+            this.lblAccuracy.Text = "Accuracy (%):";
+            // 
+            // lblAccuracyValue
+            // 
+            this.lblAccuracyValue.BackColor = System.Drawing.Color.LightYellow;
+            this.lblAccuracyValue.Location = new System.Drawing.Point(114, 58);
+            this.lblAccuracyValue.Name = "lblAccuracyValue";
+            this.lblAccuracyValue.Size = new System.Drawing.Size(47, 13);
+            this.lblAccuracyValue.TabIndex = 13;
             // 
             // MainForm
             // 
@@ -221,6 +242,8 @@
         private System.Windows.Forms.Label lblTestingPercValue;
         private System.Windows.Forms.Label lblTestingPerc;
         private System.Windows.Forms.Timer timerTesting;
+        private System.Windows.Forms.Label lblAccuracyValue;
+        private System.Windows.Forms.Label lblAccuracy;
     }
 }
 
