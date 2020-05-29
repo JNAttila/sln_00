@@ -23,7 +23,8 @@ namespace NeuronNet
         public void DoTrainingProcess(Button btn, ComboBox cb)
         {
             btn.Enabled = false;
-            Int32.TryParse(cb.SelectedText, out int limit);
+            String selectedItem = (cb.SelectedItem != null) ? (cb.SelectedItem.ToString()) : ("");
+            Int32.TryParse(selectedItem, out int limit);
             Application.DoEvents();
 
             ncl.DoTrainingProcess((limit > 0) ? (limit) : (defaultLimit));
@@ -37,13 +38,12 @@ namespace NeuronNet
             label.Text = ncl.GetTrainingPercent().ToString();
         }
 
-        public void DoTestingProcess(Button btn, ComboBox cb)
+        public void DoTestingProcess(Button btn)
         {
             btn.Enabled = false;
-            Int32.TryParse(cb.SelectedText, out int limit);
             Application.DoEvents();
 
-            ncl.DoTestingProcess((limit > 0) ? (limit) : (defaultLimit));
+            ncl.DoTestingProcess();
 
             btn.Enabled = true;
             Application.DoEvents();

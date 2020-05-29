@@ -42,3 +42,6 @@ const double epsilon = 1e-3;
 const string testingImageFileName = "mnist/t10k-images.idx3-ubyte";
 // Testing label file name
 const string testingLabelFileName = "mnist/t10k-labels.idx1-ubyte";
+
+// Number of testing samples
+const int testingSampleSize = 10000;

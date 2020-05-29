@@ -40,7 +40,6 @@
             this.lblTestingPercValue = new System.Windows.Forms.Label();
             this.lblTestingPerc = new System.Windows.Forms.Label();
             this.lblTestingSampleSize = new System.Windows.Forms.Label();
-            this.cbTestingSampleSize = new System.Windows.Forms.ComboBox();
             this.btnPauseTesting = new System.Windows.Forms.Button();
             this.btnDoTesting = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -75,12 +74,12 @@
             // 
             // lblTrainingPercValue
             // 
-            this.lblTrainingPercValue.AutoSize = true;
+            this.lblTrainingPercValue.BackColor = System.Drawing.Color.LightYellow;
             this.lblTrainingPercValue.Location = new System.Drawing.Point(117, 87);
             this.lblTrainingPercValue.Name = "lblTrainingPercValue";
             this.lblTrainingPercValue.Size = new System.Drawing.Size(35, 13);
             this.lblTrainingPercValue.TabIndex = 9;
-            this.lblTrainingPercValue.Text = "label3";
+            this.lblTrainingPercValue.Text = "0";
             // 
             // lblTrainingPerc
             // 
@@ -134,7 +133,6 @@
             this.bgTesting.Controls.Add(this.lblTestingPercValue);
             this.bgTesting.Controls.Add(this.lblTestingPerc);
             this.bgTesting.Controls.Add(this.lblTestingSampleSize);
-            this.bgTesting.Controls.Add(this.cbTestingSampleSize);
             this.bgTesting.Controls.Add(this.btnPauseTesting);
             this.bgTesting.Controls.Add(this.btnDoTesting);
             this.bgTesting.Location = new System.Drawing.Point(319, 12);
@@ -146,12 +144,12 @@
             // 
             // lblTestingPercValue
             // 
-            this.lblTestingPercValue.AutoSize = true;
+            this.lblTestingPercValue.BackColor = System.Drawing.Color.LightYellow;
             this.lblTestingPercValue.Location = new System.Drawing.Point(114, 87);
             this.lblTestingPercValue.Name = "lblTestingPercValue";
             this.lblTestingPercValue.Size = new System.Drawing.Size(35, 13);
             this.lblTestingPercValue.TabIndex = 10;
-            this.lblTestingPercValue.Text = "label4";
+            this.lblTestingPercValue.Text = "0";
             // 
             // lblTestingPerc
             // 
@@ -167,26 +165,9 @@
             this.lblTestingSampleSize.AutoSize = true;
             this.lblTestingSampleSize.Location = new System.Drawing.Point(110, 24);
             this.lblTestingSampleSize.Name = "lblTestingSampleSize";
-            this.lblTestingSampleSize.Size = new System.Drawing.Size(99, 13);
+            this.lblTestingSampleSize.Size = new System.Drawing.Size(135, 13);
             this.lblTestingSampleSize.TabIndex = 8;
-            this.lblTestingSampleSize.Text = "Testing sample size";
-            // 
-            // cbTestingSampleSize
-            // 
-            this.cbTestingSampleSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTestingSampleSize.FormattingEnabled = true;
-            this.cbTestingSampleSize.Items.AddRange(new object[] {
-            "100",
-            "200",
-            "500",
-            "1000",
-            "2000",
-            "5000",
-            "10000"});
-            this.cbTestingSampleSize.Location = new System.Drawing.Point(113, 48);
-            this.cbTestingSampleSize.Name = "cbTestingSampleSize";
-            this.cbTestingSampleSize.Size = new System.Drawing.Size(121, 21);
-            this.cbTestingSampleSize.TabIndex = 9;
+            this.lblTestingSampleSize.Text = "Testing sample size: 10000";
             // 
             // btnPauseTesting
             // 
@@ -241,7 +222,6 @@
         private System.Windows.Forms.Label lblTrainingSampleSize;
         private System.Windows.Forms.ComboBox cbTrainingSampleSize;
         private System.Windows.Forms.Label lblTestingSampleSize;
-        private System.Windows.Forms.ComboBox cbTestingSampleSize;
         private System.Windows.Forms.Label lblTrainingPercValue;
         private System.Windows.Forms.Label lblTrainingPerc;
         private System.Windows.Forms.Label lblTestingPercValue;

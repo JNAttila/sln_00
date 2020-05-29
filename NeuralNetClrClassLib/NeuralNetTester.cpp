@@ -142,7 +142,7 @@ int NeuralNetTester::ReadInput()
     return (int)(number);
 }
 
-int NeuralNetTester::DoTestingProcess(int testingSampleNumber)
+int NeuralNetTester::DoTestingProcess()
 {
     report.open(testingReportFileName.c_str(), ios::out);
     image.open(testingImageFileName.c_str(), ios::in | ios::binary);
@@ -162,7 +162,7 @@ int NeuralNetTester::DoTestingProcess(int testingSampleNumber)
 
     int nCorrect = 0;
     testingPercentage = 0.0;
-    for (int sample = 0; sample < testingSampleNumber; ++sample) {
+    for (int sample = 0; sample < testingSampleSize; ++sample) {
         //cout << "Sample " << sample << endl;
 
         // Getting (image, label)
@@ -202,14 +202,14 @@ int NeuralNetTester::DoTestingProcess(int testingSampleNumber)
         }
 
         if (sample % 20 == 0) {
-            testingPercentage = sample / testingSampleNumber;
+            testingPercentage = sample / testingSampleSize;
         }
     }
 
     // Summary
-    double accuracy = (double)(nCorrect) / testingSampleNumber * 100.0;
+    double accuracy = (double)(nCorrect) / testingSampleSize * 100.0;
 
-    report << "Number of correct samples: " << nCorrect << " / " << testingSampleNumber << endl;
+    report << "Number of correct samples: " << nCorrect << " / " << testingSampleSize << endl;
     report << "Accuracy: " << accuracy << endl;
 
     report.close();

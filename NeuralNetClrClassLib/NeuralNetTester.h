@@ -11,7 +11,7 @@ public:
 	NeuralNetTester();
 	~NeuralNetTester();
 
-	int DoTestingProcess(int testingSampleNumber);
+	int DoTestingProcess();
 
 	double GetTestingPercentage() { return testingPercentage; }
 
